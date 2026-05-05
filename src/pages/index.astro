@@ -6,82 +6,186 @@ import { getCollection } from 'astro:content';
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const latestArticles = allArticles
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
-  .slice(0, 5);
+  .slice(0, 6);
 ---
 
 <Layout
   title="うまミライ"
-  description="地方競馬をAIと一緒に楽しむ予想メディア。中央競馬で勝てない方へ、地方の穴馬を見つけるデータ分析・AI予想情報を毎日更新。"
+  description="中央で勝てない人のための、地方競馬AI予想メディア。AIが毎日、地方14場の全レースを分析。◎○▲△の予想印・推奨買い目・根拠コメントを無料で公開します。"
 >
-  <!-- Hero Section -->
-  <section class="bg-green-900 text-white py-20 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="text-yellow-400 text-sm font-bold uppercase tracking-widest mb-4">AI × 地方競馬</p>
-      <h1 class="text-4xl sm:text-5xl font-black leading-tight mb-6">
-        地方競馬を、<br />
-        <span class="text-yellow-400">AIと一緒に。</span>
-      </h1>
-      <p class="text-lg sm:text-xl text-green-100 leading-relaxed mb-8 max-w-2xl mx-auto">
-        中央で勝てない方へ。地方競馬ならではの穴馬を見つけるAI予想メディアです。<br />
-        データに基づいたレース分析と初心者向け解説を毎日更新中。
+  <!-- ===================== Hero Section ===================== -->
+  <section class="relative overflow-hidden text-white" style="background: linear-gradient(180deg, #0A4D3C 0%, #051A15 100%);">
+
+    <!-- 馬アウトラインSVG 背景装飾 -->
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <svg class="absolute right-0 top-0 h-full opacity-5" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+        <!-- 簡易馬アウトライン -->
+        <ellipse cx="220" cy="300" rx="110" ry="65"/>
+        <rect x="170" y="170" width="55" height="140" rx="28"/>
+        <ellipse cx="160" cy="140" rx="42" ry="55"/>
+        <polygon points="140,70 160,70 148,30"/>
+        <polygon points="155,75 175,75 163,35"/>
+        <rect x="155" y="365" width="22" height="80" rx="10"/>
+        <rect x="195" y="365" width="22" height="80" rx="10"/>
+        <rect x="240" y="360" width="22" height="80" rx="10"/>
+        <rect x="278" y="355" width="22" height="80" rx="10"/>
+        <path d="M330 280 Q390 240 380 310" stroke="#D4AF37" stroke-width="18" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto text-center px-4 py-24 sm:py-32">
+      <!-- 小ラベル -->
+      <p class="inline-block bg-yellow-500 bg-opacity-20 border border-yellow-400 border-opacity-50 text-yellow-300 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+        AI × 地方競馬 × 無料公開
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/articles" class="btn-gold text-base px-8 py-4">
-          記事を読む →
+
+      <!-- メインキャッチ -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight">
+        中央で勝てない人のための、<br />
+        <span class="text-yellow-400">地方競馬AI予想メディア。</span>
+      </h1>
+
+      <!-- サブキャッチ -->
+      <p class="text-lg sm:text-xl text-green-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+        AIが毎日、地方14場の全レースを分析。<br class="hidden sm:block" />
+        ◎○▲△の予想印・推奨買い目・根拠コメントを<strong class="text-white">無料</strong>で公開します。
+      </p>
+
+      <!-- CTA ボタン -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+        <a
+          href="/articles"
+          class="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-950 font-extrabold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-yellow-400/30 transition-all duration-200 hover:-translate-y-0.5"
+        >
+          📊 最新のAI予想を見る
         </a>
-        <a href="/about" class="inline-block border-2 border-green-400 text-green-100 font-bold px-8 py-4 rounded-lg hover:bg-green-800 transition-colors text-base">
-          うまミライとは
+        <a
+          href="/articles/beginner-guide-betting-types"
+          class="inline-flex items-center justify-center gap-2 border-2 border-green-400 border-opacity-60 text-green-100 font-bold text-base px-8 py-4 rounded-xl hover:bg-green-800 hover:border-opacity-100 transition-all duration-200"
+        >
+          🎓 初心者ガイドから読む
         </a>
       </div>
+
+      <!-- 統計バッジ 3つ -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="flex items-center gap-2 bg-green-800 bg-opacity-70 border border-yellow-500 border-opacity-40 rounded-full px-5 py-2.5">
+          <span class="text-yellow-400 font-black text-lg">14場</span>
+          <span class="text-green-200 text-sm">対応</span>
+          <span class="text-green-400 text-xs ml-1">地方競馬全14会場</span>
+        </div>
+        <div class="flex items-center gap-2 bg-green-800 bg-opacity-70 border border-yellow-500 border-opacity-40 rounded-full px-5 py-2.5">
+          <span class="text-yellow-400 font-black text-lg">365日</span>
+          <span class="text-green-200 text-sm">更新</span>
+          <span class="text-green-400 text-xs ml-1">毎日開催に対応</span>
+        </div>
+        <div class="flex items-center gap-2 bg-green-800 bg-opacity-70 border border-yellow-500 border-opacity-40 rounded-full px-5 py-2.5">
+          <span class="text-yellow-400 font-black text-lg">完全</span>
+          <span class="text-green-200 text-sm">無料</span>
+          <span class="text-green-400 text-xs ml-1">予想は無料公開</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 下部の波形区切り -->
+    <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-10 fill-white">
+        <path d="M0,20 C300,40 900,0 1200,20 L1200,40 L0,40 Z"/>
+      </svg>
     </div>
   </section>
 
-  <!-- Benefits Section -->
-  <section class="py-16 px-4 bg-white">
+  <!-- ===================== 悩み訴求 + ベネフィットカード ===================== -->
+  <section class="py-20 px-4 bg-white">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-green-900 mb-2">うまミライの3つの特徴</h2>
-      <p class="text-center text-gray-500 text-sm mb-10">データで勝負する競馬ファンのために</p>
+      <!-- 問いかけ見出し -->
+      <div class="text-center mb-12">
+        <p class="text-yellow-600 text-sm font-bold uppercase tracking-widest mb-2">こんな悩み、ありませんか?</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-green-900 leading-tight">
+          うまミライが<span class="text-yellow-500">解決</span>します
+        </h2>
+        <p class="text-gray-500 mt-3 text-sm sm:text-base">中央競馬情報では届かない、地方競馬特有の視点をAIで届けます。</p>
+      </div>
 
+      <!-- ベネフィットカード 3列 -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <!-- Feature 1 -->
-        <div class="text-center p-6 rounded-xl bg-green-50 border border-green-100">
-          <div class="text-4xl mb-4">🤖</div>
-          <h3 class="text-lg font-bold text-green-900 mb-2">AI予想分析</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            過去データをAIが解析。人間の直感では見落としがちな傾向をデータで可視化します。
-          </p>
-        </div>
 
-        <!-- Feature 2 -->
-        <div class="text-center p-6 rounded-xl bg-yellow-50 border border-yellow-100">
+        <!-- カード1 -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col">
           <div class="text-4xl mb-4">🏇</div>
-          <h3 class="text-lg font-bold text-green-900 mb-2">地方競馬特化</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            大井・船橋・川崎・笠松など全国の地方競馬場に特化。JRA情報では得られない独自視点を提供。
-          </p>
+          <h3 class="text-lg font-extrabold text-green-900 mb-1 leading-snug">中央競馬で<br />勝ちきれない方へ</h3>
+          <div class="w-10 h-1 bg-yellow-400 rounded mb-4 mt-1"></div>
+          <ul class="text-sm text-gray-600 leading-relaxed space-y-2 flex-1">
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              中央偏重メディアと違う「地方特化」の視点
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              短ストレート・ダート中心という地方特性をAIが学習
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              中央では拾えない穴の傾向を分析
+            </li>
+          </ul>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="text-center p-6 rounded-xl bg-green-50 border border-green-100">
+        <!-- カード2 -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col">
           <div class="text-4xl mb-4">📊</div>
-          <h3 class="text-lg font-bold text-green-900 mb-2">毎日更新</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            開催日に合わせて情報を更新。初心者にもわかりやすい解説記事も随時追加中。
-          </p>
+          <h3 class="text-lg font-extrabold text-green-900 mb-1 leading-snug">データで<br />勝率を上げたい方へ</h3>
+          <div class="w-10 h-1 bg-yellow-400 rounded mb-4 mt-1"></div>
+          <ul class="text-sm text-gray-600 leading-relaxed space-y-2 flex-1">
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              過去成績・脚質・馬場・血統をAIが定量評価
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              「投資型競馬」の考え方（回収率重視）を採用
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              根拠付き予想で再現性を意識
+            </li>
+          </ul>
+        </div>
+
+        <!-- カード3 -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col">
+          <div class="text-4xl mb-4">🌱</div>
+          <h3 class="text-lg font-extrabold text-green-900 mb-1 leading-snug">競馬を<br />始めたい方へ</h3>
+          <div class="w-10 h-1 bg-yellow-400 rounded mb-4 mt-1"></div>
+          <ul class="text-sm text-gray-600 leading-relaxed space-y-2 flex-1">
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              馬券種・出走表の読み方など初心者ガイドを完備
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              AIが付与する印（◎○▲△）で買い方が直感的
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">✔</span>
+              20歳以上・自己責任の表記を明確化、安心して読める
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Latest Articles Section -->
+  <!-- ===================== 最新記事セクション ===================== -->
   <section class="py-16 px-4 bg-gray-50">
     <div class="max-w-5xl mx-auto">
       <div class="flex items-center justify-between mb-8">
         <div>
-          <h2 class="text-2xl font-bold text-green-900">最新記事</h2>
-          <p class="text-sm text-gray-500 mt-1">地方競馬の基礎から攻略法まで</p>
+          <p class="text-yellow-600 text-xs font-bold uppercase tracking-widest mb-1">LATEST ARTICLES</p>
+          <h2 class="text-2xl font-extrabold text-green-900">最新記事</h2>
+          <p class="text-sm text-gray-500 mt-1">地方競馬の基礎から攻略法・AI予想まで</p>
         </div>
-        <a href="/articles" class="text-sm text-green-700 font-semibold hover:text-yellow-600 transition-colors">
+        <a href="/articles" class="text-sm text-green-700 font-semibold hover:text-yellow-600 transition-colors whitespace-nowrap">
           すべて見る →
         </a>
       </div>
@@ -110,10 +214,38 @@ const latestArticles = allArticles
     </div>
   </section>
 
-  <!-- About Teaser -->
+  <!-- ===================== 今後提供予定の機能 ===================== -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-green-600 text-xs font-bold uppercase tracking-widest mb-2">COMING SOON</p>
+        <h2 class="text-2xl font-extrabold text-green-900">これから提供予定の機能</h2>
+        <p class="text-sm text-gray-500 mt-2">うまミライは進化し続けます</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div class="rounded-xl border border-dashed border-green-300 p-5 text-center bg-green-50">
+          <div class="text-3xl mb-3">📱</div>
+          <h3 class="font-bold text-green-900 text-sm mb-1">リアルタイム予想配信</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Threads連動で当日のレース予想を速報配信</p>
+        </div>
+        <div class="rounded-xl border border-dashed border-green-300 p-5 text-center bg-green-50">
+          <div class="text-3xl mb-3">🎥</div>
+          <h3 class="font-bold text-green-900 text-sm mb-1">重賞前日解説動画</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">YouTube / TikTokで重賞レース前日に解説動画を公開</p>
+        </div>
+        <div class="rounded-xl border border-dashed border-green-300 p-5 text-center bg-green-50">
+          <div class="text-3xl mb-3">🔍</div>
+          <h3 class="font-bold text-green-900 text-sm mb-1">予想ツール比較LP</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">競馬予想ツール・指数サービスの徹底比較ページ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== なぜ地方競馬？ティーザー ===================== -->
   <section class="py-16 px-4 bg-green-900 text-white">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-4">なぜ地方競馬なのか</h2>
+      <h2 class="text-2xl font-extrabold mb-4">なぜ地方競馬なのか</h2>
       <p class="text-green-100 leading-relaxed mb-6 text-sm sm:text-base">
         JRAに比べて情報量が少ない地方競馬は、データを活用する余地が大きい競技です。
         うまミライは「AIで地方競馬の隠れた価値を見つける」というコンセプトのもと、
@@ -125,7 +257,7 @@ const latestArticles = allArticles
     </div>
   </section>
 
-  <!-- Disclaimer notice -->
+  <!-- ===================== 免責ノーティス ===================== -->
   <div class="bg-yellow-50 border-t border-yellow-200 py-4 px-4">
     <p class="text-xs text-gray-600 text-center max-w-3xl mx-auto">
       ※当サイトはアフィリエイト広告を含みます。予想の的中を保証するものではありません。

@@ -1,16 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0A4D3C"/>
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A4D3C"/>
+      <stop offset="100%" stop-color="#051A15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
   <!-- Decorative border -->
   <rect x="20" y="20" width="1160" height="590" rx="12" fill="none" stroke="#D4AF37" stroke-width="3" opacity="0.6"/>
 
-  <!-- Gold accent top stripe -->
+  <!-- Gold accent top/bottom stripe -->
   <rect x="0" y="0" width="1200" height="8" fill="#D4AF37"/>
   <rect x="0" y="622" width="1200" height="8" fill="#D4AF37"/>
 
   <!-- Horse silhouette (decorative, right side) -->
-  <g transform="translate(820, 100) scale(3.5)" opacity="0.15" fill="#D4AF37">
+  <g transform="translate(820, 100) scale(3.5)" opacity="0.12" fill="#D4AF37">
     <ellipse cx="17" cy="19" rx="7" ry="5"/>
     <rect x="12" y="11" width="4" height="9" rx="2"/>
     <ellipse cx="11" cy="9" rx="3" ry="4"/>
@@ -22,10 +28,22 @@
     <path d="M24 17 Q29 14 28 20" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
   </g>
 
+  <!-- Pre-title label -->
+  <text
+    x="100"
+    y="195"
+    font-family="'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif"
+    font-size="28"
+    font-weight="700"
+    fill="#D4AF37"
+    opacity="0.85"
+    letter-spacing="4"
+  >中央で勝てない人のための</text>
+
   <!-- Main logo text -->
   <text
     x="100"
-    y="290"
+    y="320"
     font-family="'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif"
     font-size="130"
     font-weight="700"
@@ -34,12 +52,12 @@
   >うまミライ</text>
 
   <!-- Gold underline -->
-  <rect x="100" y="320" width="780" height="5" fill="#D4AF37" opacity="0.8" rx="2"/>
+  <rect x="100" y="340" width="780" height="5" fill="#D4AF37" opacity="0.8" rx="2"/>
 
   <!-- Subtitle -->
   <text
     x="100"
-    y="400"
+    y="415"
     font-family="'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif"
     font-size="44"
     font-weight="400"
@@ -51,19 +69,19 @@
   <!-- Tagline -->
   <text
     x="100"
-    y="470"
+    y="480"
     font-family="'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif"
     font-size="28"
     font-weight="300"
     fill="#D4AF37"
     opacity="0.75"
     letter-spacing="2"
-  >中央で勝てない方へ、地方の穴を見つけるAI予想</text>
+  >14場対応 · 365日更新 · 予想無料公開</text>
 
   <!-- Domain -->
   <text
     x="100"
-    y="560"
+    y="570"
     font-family="'Helvetica Neue', Arial, sans-serif"
     font-size="28"
     font-weight="400"
