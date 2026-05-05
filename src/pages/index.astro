@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const latestArticles = allArticles
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 5);
+---
+
+<Layout
+  title="うまミライ"
+  description="地方競馬をAIと一緒に楽しむ予想メディア。中央競馬で勝てない方へ、地方の穴馬を見つけるデータ分析・AI予想情報を毎日更新。"
+>
+  <!-- Hero Section -->
+  <section class="bg-green-900 text-white py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-yellow-400 text-sm font-bold uppercase tracking-widest mb-4">AI × 地方競馬</p>
+      <h1 class="text-4xl sm:text-5xl font-black leading-tight mb-6">
+        地方競馬を、<br />
+        <span class="text-yellow-400">AIと一緒に。</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-green-100 leading-relaxed mb-8 max-w-2xl mx-auto">
+        中央で勝てない方へ。地方競馬ならではの穴馬を見つけるAI予想メディアです。<br />
+        データに基づいたレース分析と初心者向け解説を毎日更新中。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/articles" class="btn-gold text-base px-8 py-4">
+          記事を読む →
+        </a>
+        <a href="/about" class="inline-block border-2 border-green-400 text-green-100 font-bold px-8 py-4 rounded-lg hover:bg-green-800 transition-colors text-base">
+          うまミライとは
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold text-center text-green-900 mb-2">うまミライの3つの特徴</h2>
+      <p class="text-center text-gray-500 text-sm mb-10">データで勝負する競馬ファンのために</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div class="text-center p-6 rounded-xl bg-green-50 border border-green-100">
+          <div class="text-4xl mb-4">🤖</div>
+          <h3 class="text-lg font-bold text-green-900 mb-2">AI予想分析</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            過去データをAIが解析。人間の直感では見落としがちな傾向をデータで可視化します。
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="text-center p-6 rounded-xl bg-yellow-50 border border-yellow-100">
+          <div class="text-4xl mb-4">🏇</div>
+          <h3 class="text-lg font-bold text-green-900 mb-2">地方競馬特化</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            大井・船橋・川崎・笠松など全国の地方競馬場に特化。JRA情報では得られない独自視点を提供。
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="text-center p-6 rounded-xl bg-green-50 border border-green-100">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-lg font-bold text-green-900 mb-2">毎日更新</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            開催日に合わせて情報を更新。初心者にもわかりやすい解説記事も随時追加中。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles Section -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-bold text-green-900">最新記事</h2>
+          <p class="text-sm text-gray-500 mt-1">地方競馬の基礎から攻略法まで</p>
+        </div>
+        <a href="/articles" class="text-sm text-green-700 font-semibold hover:text-yellow-600 transition-colors">
+          すべて見る →
+        </a>
+      </div>
+
+      {latestArticles.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {latestArticles.map((article) => (
+            <ArticleCard
+              slug={article.slug}
+              title={article.data.title}
+              description={article.data.description}
+              publishedAt={article.data.publishedAt}
+              keywords={article.data.keywords}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-gray-500 py-12">記事を準備中です。もうしばらくお待ちください。</p>
+      )}
+
+      <div class="text-center mt-10">
+        <a href="/articles" class="btn-primary">
+          記事一覧をすべて見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="py-16 px-4 bg-green-900 text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4">なぜ地方競馬なのか</h2>
+      <p class="text-green-100 leading-relaxed mb-6 text-sm sm:text-base">
+        JRAに比べて情報量が少ない地方競馬は、データを活用する余地が大きい競技です。
+        うまミライは「AIで地方競馬の隠れた価値を見つける」というコンセプトのもと、
+        回収率を重視した投資型競馬の視点から情報を発信しています。
+      </p>
+      <a href="/about" class="btn-gold">
+        うまミライについて詳しく
+      </a>
+    </div>
+  </section>
+
+  <!-- Disclaimer notice -->
+  <div class="bg-yellow-50 border-t border-yellow-200 py-4 px-4">
+    <p class="text-xs text-gray-600 text-center max-w-3xl mx-auto">
+      ※当サイトはアフィリエイト広告を含みます。予想の的中を保証するものではありません。
+      馬券購入は20歳以上の方に限ります。
+    </p>
+  </div>
+</Layout>

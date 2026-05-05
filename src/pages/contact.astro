@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Google フォームの URL をここに設定してください
+const googleFormsUrl = '__GOOGLE_FORMS_URL__';
+const hasGoogleForms = googleFormsUrl !== '__GOOGLE_FORMS_URL__';
+---
+
+<Layout
+  title="お問い合わせ"
+  description="うまミライへのお問い合わせページです。ご質問・ご意見・取材依頼などはこちらからどうぞ。"
+  keywords={['お問い合わせ', 'コンタクト', 'うまミライ']}
+>
+  <div class="max-w-2xl mx-auto px-4 py-12">
+    <div class="text-center mb-10">
+      <h1 class="text-3xl font-black text-green-900 mb-2">お問い合わせ</h1>
+      <p class="text-gray-500 text-sm">ご質問・ご意見・取材依頼など、お気軽にどうぞ</p>
+      <div class="w-16 h-1 bg-yellow-500 mx-auto rounded mt-3"></div>
+    </div>
+
+    <!-- Email contact -->
+    <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+      <h2 class="text-base font-bold text-green-900 mb-3">メールでのお問い合わせ</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        以下のメールアドレスにご連絡ください。通常3営業日以内にご返信します。
+      </p>
+      <a
+        href="mailto:contact@umamirai.com"
+        class="inline-flex items-center gap-2 text-green-700 font-bold hover:text-yellow-600 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        contact@umamirai.com
+      </a>
+    </div>
+
+    <!-- Google Forms embed -->
+    <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+      <h2 class="text-base font-bold text-green-900 mb-3">お問い合わせフォーム</h2>
+
+      {hasGoogleForms ? (
+        <div class="rounded-lg overflow-hidden border border-gray-200">
+          <iframe
+            src={googleFormsUrl}
+            width="100%"
+            height="600"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="お問い合わせフォーム"
+            class="block"
+          >
+            読み込んでいます…
+          </iframe>
+        </div>
+      ) : (
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
+          <p class="text-yellow-800 font-bold mb-2">フォームを設定中</p>
+          <p class="text-sm text-yellow-700 mb-4">
+            Googleフォームの設定が完了次第、こちらに埋め込みフォームが表示されます。<br />
+            現在はメールでのお問い合わせをご利用ください。
+          </p>
+          <p class="text-xs text-gray-500">
+            運営者向け: <code class="bg-gray-100 px-1 rounded">contact.astro</code> の
+            <code class="bg-gray-100 px-1 rounded">googleFormsUrl</code> に Google フォームの URL を設定してください。
+          </p>
+        </div>
+      )}
+    </div>
+
+    <!-- FAQ -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-base font-bold text-green-900 mb-4">よくある質問</h2>
+      <div class="space-y-4 text-sm">
+        <div>
+          <p class="font-semibold text-gray-800">Q. 予想は有料ですか？</p>
+          <p class="text-gray-600 mt-1">A. 現在公開しているコンテンツはすべて無料です。有料サービスを開始する場合は事前にお知らせします。</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-800">Q. 予想の的中を保証していますか？</p>
+          <p class="text-gray-600 mt-1">A. 一切保証していません。当サイトの情報はあくまで参考情報です。馬券購入はご自身の判断と責任で行ってください。</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-800">Q. 取材・コラボのご依頼は受け付けていますか？</p>
+          <p class="text-gray-600 mt-1">A. 内容によってはお受けできる場合があります。詳細をメールにてご連絡ください。</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-800">Q. 個人情報はどのように扱われますか？</p>
+          <p class="text-gray-600 mt-1">A. <a href="/privacy" class="text-green-700 underline">プライバシーポリシー</a>をご参照ください。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/" class="text-sm text-green-700 underline hover:text-yellow-600">← トップページへ戻る</a>
+    </div>
+  </div>
+</Layout>

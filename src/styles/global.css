@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-snug;
+  }
+}
+
+@layer components {
+  /* 記事本文エリア */
+  .article-body {
+    @apply prose prose-lg max-w-none;
+  }
+
+  .article-body h2 {
+    @apply text-green-900 border-b-2 border-yellow-500 pb-2 mt-10 mb-4;
+  }
+
+  .article-body h3 {
+    @apply text-green-800 mt-8 mb-3;
+  }
+
+  .article-body a {
+    @apply text-green-800 underline hover:text-yellow-600 transition-colors;
+  }
+
+  .article-body table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .article-body th {
+    @apply bg-green-900 text-white px-4 py-2 text-left;
+  }
+
+  .article-body td {
+    @apply border border-gray-200 px-4 py-2;
+  }
+
+  .article-body tr:nth-child(even) td {
+    @apply bg-gray-50;
+  }
+
+  /* カードコンポーネント */
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+  }
+
+  /* CTA ボタン */
+  .btn-primary {
+    @apply inline-block bg-green-900 text-white font-bold px-6 py-3 rounded-lg hover:bg-green-800 transition-colors;
+  }
+
+  .btn-gold {
+    @apply inline-block bg-yellow-500 text-green-900 font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition-colors;
+  }
+
+  /* 注意事項ボックス */
+  .notice-box {
+    @apply bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded-r-lg text-sm text-gray-700;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: #D4AF37;
+  }
+
+  .bg-dark-green {
+    background-color: #0A4D3C;
+  }
+}

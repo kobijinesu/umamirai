@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="うまミライについて"
+  description="うまミライは地方競馬AI予想メディアです。運営者情報・サイトのコンセプト・なぜ地方競馬に特化しているのかをご紹介します。"
+  keywords={['地方競馬', 'AI予想', 'うまミライ', '運営者情報', 'About']}
+>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl sm:text-4xl font-black text-green-900 mb-3">うまミライについて</h1>
+      <div class="w-16 h-1 bg-yellow-500 mx-auto rounded"></div>
+    </div>
+
+    <!-- About the site -->
+    <section class="mb-10 bg-white rounded-xl shadow-sm p-8">
+      <h2 class="text-xl font-bold text-green-900 border-b-2 border-yellow-400 pb-2 mb-4">
+        サイトのコンセプト
+      </h2>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        「うまミライ」は、<strong>地方競馬に特化したAI予想・データ分析メディア</strong>です。
+        中央競馬（JRA）では得られない地方競馬ならではの情報を、データと冷静な視点でお届けします。
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        競馬は「ギャンブル」というイメージが強いですが、データを積み上げ、回収率を管理する
+        「投資型競馬」という考え方もあります。当サイトはその視点を大切にしながら、
+        感情ではなく数字と根拠で語るコンテンツを目指しています。
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        予想の的中を保証することはできませんが、情報の質を高めることで
+        読者の皆さんの判断材料として役立てていただけると嬉しいです。
+      </p>
+    </section>
+
+    <!-- Why local horse racing -->
+    <section class="mb-10 bg-white rounded-xl shadow-sm p-8">
+      <h2 class="text-xl font-bold text-green-900 border-b-2 border-yellow-400 pb-2 mb-4">
+        なぜ地方競馬なのか
+      </h2>
+      <div class="space-y-4 text-gray-700 leading-relaxed">
+        <p>
+          JRAには年間3,000億円規模の売上データ・メディア露出があり、情報の非対称性が小さい競技です。
+          一方、地方競馬（NAR）は以下の特徴があります。
+        </p>
+        <ul class="list-disc list-inside space-y-2 pl-2 text-sm">
+          <li>情報量が少なく、独自分析が活きやすい</li>
+          <li>ダートコース中心でコース特性の差が大きい</li>
+          <li>地元密着型の馬・騎手データがある</li>
+          <li>JRAと比べてオッズ乖離（バリュー馬）が出やすい</li>
+          <li>毎日どこかで開催があり、チャンスが多い</li>
+        </ul>
+        <p>
+          こうした特性を活かして、データを蓄積・分析することで
+          中央競馬とは異なるアプローチが可能です。
+          「中央競馬ばかりやっていたけど地方も面白いかも」という方に、
+          まずこのサイトを読んでいただきたいと思っています。
+        </p>
+      </div>
+    </section>
+
+    <!-- Operator info -->
+    <section class="mb-10 bg-white rounded-xl shadow-sm p-8">
+      <h2 class="text-xl font-bold text-green-900 border-b-2 border-yellow-400 pb-2 mb-4">
+        運営者情報
+      </h2>
+      <table class="w-full text-sm">
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <th class="text-left py-3 pr-4 text-gray-500 font-medium w-1/3">サイト名</th>
+            <td class="py-3 text-gray-800">うまミライ</td>
+          </tr>
+          <tr>
+            <th class="text-left py-3 pr-4 text-gray-500 font-medium">URL</th>
+            <td class="py-3 text-gray-800">https://umamirai.com</td>
+          </tr>
+          <tr>
+            <th class="text-left py-3 pr-4 text-gray-500 font-medium">運営形態</th>
+            <td class="py-3 text-gray-800">個人事業主</td>
+          </tr>
+          <tr>
+            <th class="text-left py-3 pr-4 text-gray-500 font-medium">お問い合わせ</th>
+            <td class="py-3 text-gray-800">
+              <a href="/contact" class="text-green-700 underline hover:text-yellow-600">
+                お問い合わせフォーム
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-3 pr-4 text-gray-500 font-medium">開設</th>
+            <td class="py-3 text-gray-800">2026年5月</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Disclaimer -->
+    <div class="notice-box">
+      <p class="font-bold mb-1">重要なお知らせ</p>
+      <ul class="space-y-1 text-xs">
+        <li>・当サイトの予想・情報は確実な的中を保証するものではありません。</li>
+        <li>・馬券購入は20歳以上の方に限られます。</li>
+        <li>・当サイトはアフィリエイト広告を含みます。</li>
+        <li>・ギャンブル等依存症についての情報は<a href="https://www.gov-online.go.jp/" target="_blank" rel="noopener noreferrer" class="underline">政府広報オンライン</a>をご参照ください。</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-10">
+      <a href="/articles" class="btn-primary">記事一覧を見る</a>
+    </div>
+  </div>
+</Layout>

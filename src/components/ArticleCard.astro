@@ -1,0 +1,55 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  publishedAt: Date;
+  keywords?: string[];
+}
+
+const { slug, title, description, publishedAt, keywords = [] } = Astro.props;
+
+const formattedDate = publishedAt.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="card border border-gray-100 flex flex-col">
+  <a href={`/articles/${slug}`} class="flex flex-col h-full p-5 group">
+    <!-- Keywords / Tags -->
+    {keywords.length > 0 && (
+      <div class="flex flex-wrap gap-1 mb-3">
+        {keywords.slice(0, 3).map((kw) => (
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full font-medium">
+            {kw}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- Title -->
+    <h2 class="text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors mb-2 leading-snug line-clamp-2">
+      {title}
+    </h2>
+
+    <!-- Description -->
+    <p class="text-sm text-gray-600 leading-relaxed flex-1 line-clamp-3 mb-4">
+      {description}
+    </p>
+
+    <!-- Footer: date + read more -->
+    <div class="flex items-center justify-between mt-auto">
+      <time
+        datetime={publishedAt.toISOString()}
+        class="text-xs text-gray-400"
+      >
+        {formattedDate}
+      </time>
+      <span class="text-xs text-green-700 font-semibold group-hover:text-yellow-600 transition-colors">
+        続きを読む →
+      </span>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#0A4D3C"/>
+  <!-- Horse silhouette -->
+  <g fill="#D4AF37">
+    <!-- Body -->
+    <ellipse cx="17" cy="19" rx="7" ry="5" />
+    <!-- Neck -->
+    <rect x="12" y="11" width="4" height="9" rx="2"/>
+    <!-- Head -->
+    <ellipse cx="11" cy="9" rx="3" ry="4"/>
+    <!-- Ear -->
+    <polygon points="9,5 11,5 10,2"/>
+    <!-- Legs -->
+    <rect x="11" y="23" width="2" height="5" rx="1"/>
+    <rect x="15" y="23" width="2" height="5" rx="1"/>
+    <rect x="19" y="23" width="2" height="5" rx="1"/>
+    <rect x="22" y="22" width="2" height="5" rx="1"/>
+    <!-- Tail -->
+    <path d="M24 17 Q29 14 28 20" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

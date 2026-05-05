@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="特定商取引法に基づく表記"
+  description="うまミライの特定商取引法に基づく表記ページです。運営者情報・販売価格・お支払い方法などを掲載しています。"
+  keywords={['特定商取引法', '特商法', 'うまミライ']}
+>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <div class="text-center mb-10">
+      <h1 class="text-3xl font-black text-green-900 mb-2">特定商取引法に基づく表記</h1>
+      <div class="w-16 h-1 bg-yellow-500 mx-auto rounded mt-3"></div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm p-8">
+      <table class="w-full text-sm">
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top w-1/3">販売業者</th>
+            <td class="py-4 text-gray-800">うまミライ（個人事業主）</td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">運営責任者</th>
+            <td class="py-4 text-gray-800">
+              ※請求があった場合、遅滞なく開示します。
+              <a href="/contact" class="text-green-700 underline ml-1 text-xs">お問い合わせはこちら</a>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">所在地</th>
+            <td class="py-4 text-gray-800">
+              ※特定商取引法改正（2022年）の規定に基づき、住所の開示は請求があった場合に遅滞なく行います。
+              お問い合わせフォームよりご請求ください。
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">電話番号</th>
+            <td class="py-4 text-gray-800">
+              ※特定商取引法改正の規定に基づき、電話番号の開示は請求があった場合に遅滞なく行います。
+              お問い合わせはメールまたはフォームをご利用ください。
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">メールアドレス</th>
+            <td class="py-4 text-gray-800">contact@umamirai.com</td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">サービス内容</th>
+            <td class="py-4 text-gray-800">
+              地方競馬に関する情報提供・記事コンテンツの提供（無料）<br />
+              アフィリエイト広告リンクの掲載
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">販売価格</th>
+            <td class="py-4 text-gray-800">
+              現時点では無料コンテンツのみを提供しています。<br />
+              有料サービスを提供する場合は、各サービスページに価格を明記します。
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">お支払い方法</th>
+            <td class="py-4 text-gray-800">現時点では有料サービスは提供していません。</td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">返品・返金</th>
+            <td class="py-4 text-gray-800">
+              デジタルコンテンツの性質上、購入後の返品・返金は原則としてお受けできません。
+              ただし、サービスに重大な瑕疵があった場合はご相談ください。
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left py-4 pr-4 text-gray-500 font-medium align-top">特記事項</th>
+            <td class="py-4 text-gray-800">
+              当サイトはアフィリエイト広告を含みます。<br />
+              当サイトの情報は競馬の的中・利益を保証するものではありません。<br />
+              馬券購入は20歳以上の方のみ可能です（公営競技法第29条）。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-gray-500 mt-6 text-center">
+      ※2022年の特定商取引法改正により、個人事業主はプライバシー保護のため、
+      住所・電話番号を請求対応方式で開示することが認められています。
+    </p>
+
+    <div class="text-center mt-8">
+      <a href="/" class="text-sm text-green-700 underline hover:text-yellow-600">← トップページへ戻る</a>
+    </div>
+  </div>
+</Layout>

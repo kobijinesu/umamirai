@@ -1,0 +1,60 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-green-900 text-green-100 mt-16">
+  <!-- 免責注意事項バナー -->
+  <div class="bg-yellow-600 text-yellow-900 text-center text-xs py-2 px-4 font-medium">
+    ※当サイトはアフィリエイト広告を含みます&nbsp;&nbsp;|&nbsp;&nbsp;
+    ※20歳未満の方の馬券・車券購入は法律で禁止されています&nbsp;&nbsp;|&nbsp;&nbsp;
+    ※予想の的中を保証するものではありません
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+      <!-- ブランド -->
+      <div>
+        <p class="text-yellow-400 text-xl font-black mb-2">うまミライ</p>
+        <p class="text-green-300 text-sm leading-relaxed">
+          地方競馬をAIと一緒に楽しむ予想メディア。<br />
+          中央競馬にはない地方ならではの穴馬情報を毎日更新。
+        </p>
+      </div>
+
+      <!-- コンテンツ -->
+      <div>
+        <p class="text-green-400 text-xs font-bold uppercase tracking-wider mb-3">コンテンツ</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/articles" class="hover:text-yellow-400 transition-colors">記事一覧</a></li>
+          <li><a href="/about" class="hover:text-yellow-400 transition-colors">うまミライについて</a></li>
+          <li><a href="/contact" class="hover:text-yellow-400 transition-colors">お問い合わせ</a></li>
+        </ul>
+      </div>
+
+      <!-- サイト情報 -->
+      <div>
+        <p class="text-green-400 text-xs font-bold uppercase tracking-wider mb-3">サイト情報</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/privacy" class="hover:text-yellow-400 transition-colors">プライバシーポリシー</a></li>
+          <li><a href="/terms" class="hover:text-yellow-400 transition-colors">特定商取引法に基づく表記</a></li>
+          <li><a href="/disclaimer" class="hover:text-yellow-400 transition-colors">免責事項</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 重要注意事項 -->
+    <div class="border-t border-green-700 pt-6 mb-6">
+      <div class="bg-green-800 rounded-lg p-4 text-xs text-green-300 leading-relaxed space-y-1">
+        <p>・当サイトに掲載している予想・情報は確実な的中を保証するものではありません。</p>
+        <p>・馬券・車券の購入は20歳以上の方に限られます。未成年者の購入は法律で禁止されています。</p>
+        <p>・ギャンブル等依存症の問題を抱える方は、<a href="https://www.gov-online.go.jp/" target="_blank" rel="noopener noreferrer" class="underline hover:text-yellow-400">政府広報オンライン</a>をご参照ください。</p>
+        <p>・当サイトはアフィリエイトプログラムを利用しており、リンク経由での購入等により収益を得ることがあります。</p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-green-400 text-xs">
+      <p>&copy; {currentYear} うまミライ. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
